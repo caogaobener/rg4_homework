@@ -1,0 +1,180 @@
+# 文件位置：项目根目录 /weather_api.py
+# 功能：查询指定城市的天气信息
+ 二、接口约定（请B/C同学严格按此实现）
+📦 对接B模块：weather_api.py
+def get_weather(city: str) -> dict:
+    """
+    查询城市当前天气（必须实现）
+    
+    :param city: 城市名称（中文），如 "北京"
+    :return: 字典，格式如下：
+        {
+            "success": True,  # 布尔值，查询是否成功
+            "city": "北京",    # 城市名
+            "text": "晴",      # 天气状况：晴/多云/雨/雪等
+            "temp": 25,        # 当前温度（整数）
+            "humidity": 60,    # 湿度百分比（整数）
+            "wind": "东南风2级", # 风向风力描述
+            "forecast": [      # 可选：未来预报（用于"明天"类查询）
+                {
+                    "date": "明天",
+                    "text": "多云",
+                    "temp_min": 20,
+                    "temp_max": 28
+                }
+            ]
+        }
+    
+    :note: 如果查询失败，请返回 {"success": False, "error": "错误描述"}
+    """
+    pass  # 请成员B实现
+
+
+def query_forecast(city: str, days: int = 3) -> dict:
+    """
+    查询城市未来天气预报（可选，增强功能）
+    
+    :param city: 城市名称
+    :param days: 预报天数（默认3天）
+    :return: 字典，包含 forecasts 列表
+    """
+    pass  # 可选实现
+
+
+🧪 B模块测试用例（实现后运行验证）
+python
+# test_weather.py
+from weather_api import get_weather
+
+# 测试1：正常城市
+result = get_weather("北京")
+assert result["success"] == True
+assert "temp" in result
+print("✅ 北京天气:", result)
+
+# 测试2：无效城市
+result = get_weather("火星城")
+assert result["success"] == False
+print("✅ 错误处理:", result["error"])
+
+
+
+📒 对接C模块：memory.py + planner.py
+📄 memory.py - 用户记忆管理
+python
+# 文件位置：项目根目录 /memory.py
+# 功能：持久化存储用户偏好和历史
+
+MEMORY_FILE = "memory.json"  # 统一使用此文件名
+
+def load_memory() -> dict:
+    """
+    加载用户记忆（程序启动时调用）
+    
+    :return: 字典，格式：
+        {
+            "last_city": "北京",        # 上次查询的城市
+            "preferences": ["avoid_rain"],  # 用户偏好列表
+            "history": [                # 最近对话历史（可选）
+                {"time": "2026-04-03", "input": "北京天气"}
+            ]
+        }
+    """
+    pass
+
+
+def save_memory(memory: dict) -> None:
+    """
+    保存用户记忆到本地文件
+    
+    :param memory: load_memory() 返回的同格式字典
+    """
+    pass
+
+
+def update_preference(pref_key: str) -> bool:
+    """
+    添加用户偏好
+    
+    :param pref_key: 偏好标识符，如 "avoid_rain", "prefer_indoor"
+    :return: 是否添加成功
+    """
+    pass
+
+
+def get_preferences() -> list:
+    """
+    获取当前用户偏好列表
+    
+    :return: 偏好标识符列表，如 ["avoid_rain", "avoid_cold"]
+    """
+    pass
+💡 planner.py - 出行计划生成
+python
+# 文件位置：项目根目录 /planner.py
+# 功能：根据天气和用户偏好生成出行建议
+
+def generate_plan(weather: dict, preferences: list) -> str:
+    """
+    生成出行计划建议
+    
+    :param weather: B模块 get_weather() 返回的天气字典
+    :param preferences: C模块 get_preferences() 返回的偏好列表
+    :return: 人类可读的建议字符串，如：
+        "👔 穿衣建议：温度25°C，建议穿短袖+薄外套\n
+         🎯 推荐活动：公园散步、骑行、摄影\n
+         ☔ 特别提醒：湿度较大，注意防潮"
+    
+    :note: 请结合 weather["text"]、weather["temp"] 和 preferences 生成个性化建议
+    """
+    pass
+🧪 C模块测试用例
+python
+# test_planner.py
+from memory import load_memory, update_preference
+from planner import generate_plan
+
+# 测试记忆
+update_preference("avoid_rain")
+prefs = get_preferences()
+assert "avoid_rain" in prefs
+print("✅ 偏好记录:", prefs)
+
+# 测试规划
+mock_weather = {
+    "success": True, "city": "上海", "text": "小雨", 
+    "temp": 18, "humidity": 85, "wind": "东北风3级"
+}
+plan = generate_plan(mock_weather, prefs)
+print("✅ 出行计划:\n", plan)
+assert "雨" in plan or "伞" in plan  # 应包含雨天建议
+🔄 三、联调指南（三人协作流程）
+步骤1：各自开发（并行）
+成员B：实现 weather_api.py，确保 get_weather("北京") 能返回真实数据
+成员C：实现 memory.py + planner.py，确保偏好能持久化、计划能生成
+成员A：保持 agent_core.py 不变（已有 try...except 兼容逻辑）
+步骤2：合并代码（成员D主导）
+bash
+123456
+步骤3：验证联调（全员测试）
+bash
+1234567891011
+🔧 如果联调报错
+现象
+可能原因
+解决方案
+ModuleNotFoundError
+文件没放对位置
+确保 .py 文件都在项目根目录（和 main.py 同级）
+天气查不到
+B模块API Key失效
+检查 .env 配置，确认和风天气额度
+偏好没记住
+C模块文件路径不对
+确保 MEMORY_FILE = "memory.json" 且可写
+计划生成乱码
+编码问题
+所有文件保存为 UTF-8，Windows终端执行 chcp 65001
+🚀 四、项目运行步骤（给全员/老师看）
+bash
+12345678910111213141516171819202122232425262728
