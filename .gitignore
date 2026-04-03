@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虚拟环境（千万别上传！）
+venv/
+env/
+.venv/
+
+# 环境变量与敏感信息
+.env
+*.log
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
