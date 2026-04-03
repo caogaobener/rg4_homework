@@ -155,10 +155,25 @@ assert "雨" in plan or "伞" in plan  # 应包含雨天建议
 成员A：保持 agent_core.py 不变（已有 try...except 兼容逻辑）
 步骤2：合并代码（成员D主导）
 bash
-123456
+# D同学操作：
+git pull origin main          # 拉取最新代码
+# 将B的weather_api.py、C的memory.py/planner.py放入项目根目录
+git add .
+git commit -m "feat: 集成B模块天气接口 + C模块记忆规划"
+git push
 步骤3：验证联调（全员测试）
 bash
-1234567891011
+# 1. 安装依赖
+pip install -r requirements.txt
+
+# 2. 运行主程序
+python main.py
+
+# 3. 测试核心流程：
+👉 北京天气              # 应调用B模块返回真实天气
+👉 我不喜欢下雨天        # 应调用C模块记录偏好
+👉 那上海明天呢？        # 应沿用城市+调用B模块预报
+👉 去广州穿什么          # 应调用B+C生成个性化建议
 🔧 如果联调报错
 现象
 可能原因
@@ -177,4 +192,46 @@ C模块文件路径不对
 所有文件保存为 UTF-8，Windows终端执行 chcp 65001
 🚀 四、项目运行步骤（给全员/老师看）
 bash
-12345678910111213141516171819202122232425262728
+# 1. 克隆仓库
+git clone https://github.com/caogaobener/rg4_homework.git
+cd rg4_homework
+
+# 2. 创建虚拟环境（推荐）
+python -m venv venv
+# Windows激活:
+venv\Scripts\activate
+# Mac/Linux激活:
+source venv/bin/activate
+
+# 3. 安装依赖
+pip install -r requirements.txt
+
+# 4. 配置环境变量（可选，有API Key再填）
+copy .env.example .env  # Windows
+# 编辑 .env，填入:
+# QWEATHER_API_KEY=你的和风天气Key
+# ZHIPUAI_API_KEY=你的智谱AI Key（可选）
+
+# 5. 运行程序
+python main.py
+
+# 6. 开始对话
+👉 北京天气
+👉 我不喜欢下雨天
+👉 那上海明天呢？
+👉 退出
+
+⚠️ 五、注意事项（必读）
+🔐 敏感信息
+绝不要把 .env 文件提交到GitHub（.gitignore 已配置）
+API Key 泄露请立即去对应平台重置
+📁 文件规范
+所有 .py 文件使用 UTF-8 编码
+函数命名：snake_case（如 get_weather）
+注释：关键逻辑加中文注释，方便老师阅读
+🧪 测试要求
+每个模块实现后，先运行对应的 test_*.py 自测
+联调前，确保 python main.py 能启动且不报错
+📝 文档同步
+修改接口约定后，务必更新本文档
+遇到阻塞问题，在群里@对应负责人 + 贴错误日志
