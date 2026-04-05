@@ -396,7 +396,14 @@ class WeatherAgent:
         prefs = get_preferences()
         if prefs:
             response += f"\n\n📌 小提示：已记住您的偏好：{', '.join(prefs)}"
-        
+        # 保存对话历史到 memory
+        if "history" not in self.memory:
+             self.memory["history"] = []
+        self.memory["history"].append({"user": user_input, "bot": response})
+        # 只保留最近 20 条
+        if len(self.memory["history"]) > 20:
+            self.memory["history"] = self.memory["history"][-20:]
+        save_memory(self.memory)
         log_info(f"🤖 回复: {response[:100]}...")
         return response
     
