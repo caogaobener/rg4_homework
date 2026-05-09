@@ -1,5 +1,5 @@
 # test_weather.py
-from weather_api import get_weather, query_forecast
+from tianqi.work2.weather_api import get_weather, query_forecast
 
 print("===== 天气模块测试 =====")
 

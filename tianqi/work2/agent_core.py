@@ -12,13 +12,13 @@ import re
 import json
 from typing import Optional, Dict, List
 
-from work2.config import get_llm_config, DEFAULT_CITY, MEMORY_FILE
-from work2.utils import log_info, log_error, log_debug, safe_call, pretty_print
+from tianqi.work2.config import get_llm_config, DEFAULT_CITY, MEMORY_FILE
+from tianqi.work2.utils import log_info, log_error, log_debug, safe_call, pretty_print
 
 # ========== 导入B/C模块（假设已存在）==========
 # 如果模块还没写好，先用mock函数占位，方便A独立开发测试
 try:
-    from work2.weather_api import get_weather
+    from tianqi.work2.weather_api import get_weather
 except ImportError:
     log_info("⚠️ weather_api模块未找到，使用mock函数")
     def get_weather(city: str) -> dict:

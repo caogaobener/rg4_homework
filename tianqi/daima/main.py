@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """
 main.py - 命令行聊天入口
@@ -16,8 +17,8 @@ $ python main.py
 
 import sys
 import signal
-from work2.agent_core import run_agent
-from work2.utils import pretty_print, log_info
+from tianqi.daima.agent_core import run_agent
+from tianqi.daima.utils import pretty_print, log_info
 
 def signal_handler(sig, frame):
     """优雅退出"""
