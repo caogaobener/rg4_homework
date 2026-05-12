@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="title">轻养派</view>
+  <view class="subtitle">你的个人健康管理助手</view>
+
+  <button class="login-btn" type="primary" bindtap="wxLogin" disabled="{{!agreeChecked}}">
+    微信一键登录
+  </button>
+
+  <view class="agree-box">
+    <checkbox checked="{{agreeChecked}}" bindtap="toggleAgree" />
+    <text class="agree-text">登录即表示同意《用户协议》和《隐私政策》</text>
+  </view>
+</view>

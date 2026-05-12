@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 64rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.subtitle {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 120rpx;
+}
+
+.login-btn {
+  width: 320rpx;
+  height: 80rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  margin-bottom: 60rpx;
+}
+
+.login-btn[disabled] {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.agree-box {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.agree-text {
+  margin-left: 10rpx;
+}
