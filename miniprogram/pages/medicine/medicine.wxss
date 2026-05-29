@@ -1,1 +1,218 @@
 /* pages/medicine/medicine.wxss */
+.medicine-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+/* 顶部按钮区域 */
+.add-section {
+  display: flex;
+  padding: 30rpx;
+  gap: 20rpx;
+}
+
+.add-btn {
+  flex: 1;
+  background: #07c160;
+  color: #fff;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.add-btn::after {
+  border: none;
+}
+
+.subscribe-btn {
+  width: 200rpx;
+  background: #fff;
+  color: #07c160;
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #07c160;
+}
+
+.subscribe-btn::after {
+  border: none;
+}
+
+/* 药品列表 */
+.medicine-list {
+  padding: 0 30rpx;
+}
+
+.medicine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.medicine-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.medicine-info .name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.medicine-info .dose,
+.medicine-info .time {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.medicine-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.btn-checkin {
+  background: #07c160;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  line-height: 1.5;
+}
+
+.btn-checkin::after {
+  border: none;
+}
+
+.btn-delete {
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  line-height: 1.5;
+}
+
+.btn-delete::after {
+  border: none;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 100rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 弹窗 */
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup-content {
+  width: 80%;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.popup-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.popup-close {
+  font-size: 48rpx;
+  color: #999;
+  line-height: 1;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.form-item input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.save-btn {
+  width: 100%;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 8rpx;
+  margin-top: 20rpx;
+}
+
+.save-btn::after {
+  border: none;
+}
+/* 在 medicine.wxss 中添加 */
+.btn-checked {
+  background: #e0e0e0;
+  color: #999;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  line-height: 1.5;
+}
+
+.btn-checked::after {
+  border: none;
+}
+/* medicine.wxss 中添加 */
+.btn-checked {
+  background: #e0e0e0;
+  color: #999;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 6rpx;
+  line-height: 1.5;
+}
+
+.btn-checked::after {
+  border: none;
+}

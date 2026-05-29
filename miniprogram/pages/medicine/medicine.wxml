@@ -1,2 +1,74 @@
-<!--pages/medicine/medicine.wxml-->
-<text>pages/medicine/medicine.wxml</text>
+<!-- pages/medicine/medicine.wxml -->
+<view class="medicine-container">
+  <!-- 添加药品按钮 -->
+  <view class="add-section">
+    <button class="add-btn" bindtap="showAddPopup">+ 添加药品</button>
+    <button class="subscribe-btn" bindtap="requestSubscribe">开启提醒</button>
+  </view>
+
+  <!-- 药品列表 -->
+  <view class="medicine-list" wx:if="{{medicineList.length > 0}}">
+    <view class="medicine-item" wx:for="{{medicineList}}" wx:key="_id">
+      
+      <!-- 药品信息 -->
+      <view class="medicine-info">
+        <text class="name">{{item.name}}</text>
+        <text class="dose" wx:if="{{item.dose}}">剂量: {{item.dose}}</text>
+        <text class="time">时间: {{item.time}}</text>
+      </view>
+      
+      <!-- 操作按钮 -->
+      <view class="medicine-actions">
+        <button 
+          wx:if="{{item.isCheckedInToday}}" 
+          class="btn-checked" 
+          disabled
+        >
+          今日已打卡
+        </button>
+        <button 
+          wx:else 
+          class="btn-checkin" 
+          data-id="{{item._id}}" 
+          bindtap="checkIn"
+        >
+          打卡
+        </button>
+        <button class="btn-delete" data-id="{{item._id}}" bindtap="deleteMedicine">删除</button>
+      </view>
+      
+    </view>  <!-- ← medicine-item 结束 -->
+  </view>  <!-- ← medicine-list 结束 -->
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{medicineList.length === 0}}">
+    <text>暂无药品，点击上方按钮添加</text>
+  </view>
+
+  <!-- 添加药品弹窗 -->
+  <view class="popup-mask" wx:if="{{showPopup}}" bindtap="closePopup">
+    <view class="popup-content" catchtap="preventBubble">
+      <view class="popup-header">
+        <text class="popup-title">添加药品</text>
+        <text class="popup-close" bindtap="closePopup">×</text>
+      </view>
+      
+      <view class="form-item">
+        <text class="form-label">药品名称</text>
+        <input placeholder="请输入药品名称" data-key="name" bindinput="updateForm" value="{{form.name}}" />
+      </view>
+      
+      <view class="form-item">
+        <text class="form-label">剂量</text>
+        <input placeholder="如: 1片, 2粒" data-key="dose" bindinput="updateForm" value="{{form.dose}}" />
+      </view>
+      
+      <view class="form-item">
+        <text class="form-label">服用时间</text>
+        <input placeholder="如: 早8点, 饭后" data-key="time" bindinput="updateForm" value="{{form.time}}" />
+      </view>
+      
+      <button class="save-btn" bindtap="saveMedicine">保存</button>
+    </view>
+  </view>
+</view>  <!-- ← medicine-container 结束 -->
