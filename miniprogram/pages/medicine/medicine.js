@@ -5,11 +5,16 @@ Page({
     showPopup: false,
     form: { name: "", dose: "", time: "" }
   },
-
+   // 跳转到AI药师
+  goToPharmacist() {
+    wx.navigateTo({
+      url: '/pages/pharmacist/pharmacist'
+    })
+  },
   onLoad() {
     this.getList();
   },
-
+  
   // 获取药品列表
   async getList() {
     try {
@@ -134,5 +139,6 @@ Page({
       console.error('保存订阅状态失败', err)
     }
   }
+  
 });
 

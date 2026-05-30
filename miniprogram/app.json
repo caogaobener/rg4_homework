@@ -5,7 +5,8 @@
     "pages/diet/diet",
     "pages/ai/ai",
     "pages/sport/sport",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/pharmacist/pharmacist"
   ],
   "tabBar": {
     "color": "#666",

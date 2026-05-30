@@ -216,3 +216,87 @@
 .btn-checked::after {
   border: none;
 }
+
+/* 在 medicine.wxss 中添加 */
+
+.top-section {
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+
+/* AI药师入口 */
+.pharmacist-entry {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #07c160 0%, #10b981 100%);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  color: #fff;
+}
+
+.pharmacist-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255,255,255,0.3);
+  margin-right: 20rpx;
+}
+
+.pharmacist-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pharmacist-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.pharmacist-desc {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.arrow {
+  font-size: 36rpx;
+  opacity: 0.8;
+}
+
+/* 添加药品区域 */
+.add-section {
+  display: flex;
+  gap: 20rpx;
+}
+
+.add-btn {
+  flex: 1;
+  background: #f0f9f0;
+  color: #07c160;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #07c160;
+}
+
+.add-btn::after {
+  border: none;
+}
+
+.subscribe-btn {
+  width: 200rpx;
+  background: #fff;
+  color: #07c160;
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #07c160;
+}
+
+.subscribe-btn::after {
+  border: none;
+}
