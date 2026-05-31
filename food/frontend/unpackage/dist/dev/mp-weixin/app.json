@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/food/index",
+    "pages/food/photo",
+    "pages/food/voice",
+    "pages/food/calendar",
+    "pages/food/chat"
+  ],
+  "window": {
+    "backgroundColor": "#f8fafc",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {}
+}

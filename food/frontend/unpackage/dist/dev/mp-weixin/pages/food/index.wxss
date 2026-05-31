@@ -1,0 +1,399 @@
+
+.container.data-v-f255b95b {
+  padding: 20rpx;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+.dashboard-card.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.card-header.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.title.data-v-f255b95b {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #475569;
+}
+.target-tag.data-v-f255b95b {
+  font-size: 20rpx;
+  background-color: #ecfdf5;
+  color: #059669;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-weight: 600;
+}
+.kcal-main.data-v-f255b95b {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.kcal-val.data-v-f255b95b {
+  font-size: 72rpx;
+  font-weight: 900;
+  color: #1e293b;
+}
+.kcal-unit.data-v-f255b95b {
+  font-size: 24rpx;
+  color: #94a3b8;
+  margin-left: 10rpx;
+}
+.remaining.data-v-f255b95b {
+  text-align: center;
+  font-size: 24rpx;
+  color: #64748b;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f1f5f9;
+}
+.macros-grid.data-v-f255b95b {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+.macro-item.data-v-f255b95b {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+.macro-header.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  color: #94a3b8;
+}
+.macro-value.data-v-f255b95b {
+  font-weight: 600;
+  color: #475569;
+}
+.progress-bar.data-v-f255b95b {
+  height: 8rpx;
+  background-color: #f1f5f9;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+.progress-fill.data-v-f255b95b {
+  height: 100%;
+  border-radius: 4rpx;
+}
+.blue.data-v-f255b95b { background-color: #3b82f6;
+}
+.amber.data-v-f255b95b { background-color: #f59e0b;
+}
+.rose.data-v-f255b95b { background-color: #ef4444;
+}
+.actions-grid.data-v-f255b95b {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+.action-card.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+.action-card.data-v-f255b95b:active {
+  transform: scale(0.95);
+}
+.action-icon.data-v-f255b95b {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20rpx;
+}
+.emerald.data-v-f255b95b { background-color: #ecfdf5;
+}
+.orange.data-v-f255b95b { background-color: #fff7ed;
+}
+.icon-text.data-v-f255b95b {
+  font-size: 36rpx;
+}
+.action-title.data-v-f255b95b {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 10rpx;
+}
+.action-desc.data-v-f255b95b {
+  font-size: 20rpx;
+  color: #94a3b8;
+}
+.ai-card.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #d1fae5;
+}
+.ai-header.data-v-f255b95b {
+  margin-bottom: 20rpx;
+}
+.ai-title.data-v-f255b95b {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10rpx;
+}
+.ai-desc.data-v-f255b95b {
+  font-size: 22rpx;
+  color: #94a3b8;
+}
+.ai-buttons.data-v-f255b95b {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+.ai-btn.data-v-f255b95b {
+  padding: 20rpx;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+}
+.ai-btn.emerald.data-v-f255b95b {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1rpx solid #a7f3d0;
+}
+.ai-btn.orange.data-v-f255b95b {
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1rpx solid #fed7aa;
+}
+.ai-btn.data-v-f255b95b:active {
+  transform: scale(0.95);
+}
+.ai-btn.data-v-f255b95b:disabled {
+  opacity: 0.6;
+}
+.diagnosis-card.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #d1fae5;
+}
+.diagnosis-header.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f1f5f9;
+}
+.diagnosis-title.data-v-f255b95b {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #059669;
+}
+.score-tag.data-v-f255b95b {
+  font-size: 24rpx;
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-weight: 700;
+}
+.diagnosis-content.data-v-f255b95b {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.section-title.data-v-f255b95b {
+  font-size: 24rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+.green.data-v-f255b95b { color: #059669;
+}
+.red.data-v-f255b95b { color: #ef4444;
+}
+.list.data-v-f255b95b {
+  padding-left: 30rpx;
+  font-size: 22rpx;
+  color: #475569;
+  line-height: 1.6;
+}
+.advice-box.data-v-f255b95b {
+  background-color: #ecfdf5;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #d1fae5;
+}
+.advice-title.data-v-f255b95b {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 10rpx;
+  display: block;
+}
+.advice-text.data-v-f255b95b {
+  font-size: 22rpx;
+  color: #047857;
+  line-height: 1.6;
+}
+.recipe-card.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #fed7aa;
+}
+.recipe-header.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f1f5f9;
+}
+.recipe-title.data-v-f255b95b {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #ea580c;
+}
+.calorie-tag.data-v-f255b95b {
+  font-size: 22rpx;
+  background-color: #f97316;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-weight: 700;
+}
+.recipe-content.data-v-f255b95b {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.recipe-name.data-v-f255b95b {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #1e293b;
+}
+.nutrition-tags.data-v-f255b95b {
+  display: flex;
+  gap: 15rpx;
+}
+.tag.data-v-f255b95b {
+  background-color: #f1f5f9;
+  padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+  font-size: 22rpx;
+  color: #475569;
+}
+.ingredients-section.data-v-f255b95b {
+  padding-top: 10rpx;
+  border-top: 1rpx dashed #e2e8f0;
+}
+.ingredients-text.data-v-f255b95b {
+  font-size: 22rpx;
+  color: #475569;
+  line-height: 1.6;
+}
+.steps-box.data-v-f255b95b {
+  background-color: #fff7ed;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #fed7aa;
+}
+.steps-title.data-v-f255b95b {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #9a3412;
+  margin-bottom: 10rpx;
+  display: block;
+}
+.steps-text.data-v-f255b95b {
+  font-size: 22rpx;
+  color: #c2410c;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.records-section.data-v-f255b95b {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.section-header.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.clear-btn.data-v-f255b95b {
+  font-size: 22rpx;
+  color: #ef4444;
+}
+.empty-state.data-v-f255b95b {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #94a3b8;
+}
+.empty-desc.data-v-f255b95b {
+  font-size: 20rpx;
+  margin-top: 10rpx;
+  display: block;
+}
+.records-list.data-v-f255b95b {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+.record-item.data-v-f255b95b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f8fafc;
+  border-radius: 16rpx;
+}
+.record-left.data-v-f255b95b {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+}
+.meal-tag.data-v-f255b95b {
+  font-size: 20rpx;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  color: #059669;
+  padding: 6rpx 12rpx;
+  border-radius: 12rpx;
+}
+.record-info.data-v-f255b95b {
+  display: flex;
+  flex-direction: column;
+  gap: 5rpx;
+}
+.food-name.data-v-f255b95b {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #334155;
+}
+.record-time.data-v-f255b95b {
+  font-size: 20rpx;
+  color: #94a3b8;
+}
+.record-calories.data-v-f255b95b {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #10b981;
+}

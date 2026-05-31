@@ -1,0 +1,76 @@
+{
+  "pages": [
+    {
+      "path": "pages/food/index",
+      "style": {
+        "navigationBarTitleText": "轻养派·智能饮食",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/food/photo",
+      "style": {
+        "navigationBarTitleText": "拍照识食",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/food/voice",
+      "style": {
+        "navigationBarTitleText": "语音记餐",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/food/calendar",
+      "style": {
+        "navigationBarTitleText": "饮食日历",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+	{
+	  "path": "pages/food/chat",
+	  "style": {
+	    "navigationBarTitleText": "AI营养师",
+	    "navigationBarBackgroundColor": "#ffffff",
+	    "navigationBarTextStyle": "black"
+	  }
+	}
+  ],
+  // "tabBar": {
+  //   "color": "#94a3b8",
+  //   "selectedColor": "#10b981",
+  //   "backgroundColor": "#ffffff",
+  //   "borderStyle": "black",
+  //   "list": [
+  //     {
+  //       "pagePath": "food/frontend/pages/food/index",
+  //       "text": "智能饮食",
+  //       "iconPath": "static/icons/food.png",
+  //       "selectedIconPath": "static/icons/food-active.png"
+  //     },
+  //     {
+  //       "pagePath": "food/frontend/pages/food/calendar",
+  //       "text": "饮食日历",
+  //       "iconPath": "static/icons/calendar.png",
+  //       "selectedIconPath": "static/icons/calendar-active.png"
+  //     },
+  //     {
+  //       "pagePath": "food/frontend/pages/food/chat",
+  //       "text": "饮食顾问",
+  //       "iconPath": "static/icons/chat.png",
+  //       "selectedIconPath": "static/icons/chat-active.png"
+  //     }
+  //   ]
+  // },
+  "globalStyle": {
+    "backgroundColor": "#f8fafc",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "uniIdRouter": {}
+}

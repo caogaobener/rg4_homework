@@ -1,0 +1,129 @@
+
+.container.data-v-682a3bd8 {
+  padding: 20rpx;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+.week-calendar.data-v-682a3bd8 {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.day-item.data-v-682a3bd8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15rpx 20rpx;
+  border-radius: 16rpx;
+  transition: all 0.2s;
+}
+.day-item.active.data-v-682a3bd8 {
+  background-color: #10b981;
+  color: #ffffff;
+}
+.day-name.data-v-682a3bd8 {
+  font-size: 20rpx;
+  text-transform: uppercase;
+  margin-bottom: 10rpx;
+}
+.day-num.data-v-682a3bd8 {
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.filter-bar.data-v-682a3bd8 {
+  margin-bottom: 20rpx;
+}
+.filter-scroll.data-v-682a3bd8 {
+  white-space: nowrap;
+}
+.filter-item.data-v-682a3bd8 {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 15rpx;
+  background-color: #ffffff;
+  border: 1rpx solid #e2e8f0;
+  border-radius: 30rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.2s;
+}
+.filter-item.active.data-v-682a3bd8 {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+.records-section.data-v-682a3bd8 {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.empty-state.data-v-682a3bd8 {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #94a3b8;
+}
+.empty-desc.data-v-682a3bd8 {
+  font-size: 22rpx;
+  margin-top: 15rpx;
+  display: block;
+}
+.records-list.data-v-682a3bd8 {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.record-item.data-v-682a3bd8 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f8fafc;
+  border-radius: 16rpx;
+}
+.record-left.data-v-682a3bd8 {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+}
+.meal-tag.data-v-682a3bd8 {
+  font-size: 20rpx;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  color: #059669;
+  padding: 6rpx 12rpx;
+  border-radius: 12rpx;
+}
+.record-info.data-v-682a3bd8 {
+  display: flex;
+  flex-direction: column;
+  gap: 5rpx;
+}
+.food-name.data-v-682a3bd8 {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #334155;
+}
+.record-time.data-v-682a3bd8 {
+  font-size: 20rpx;
+  color: #94a3b8;
+}
+.record-right.data-v-682a3bd8 {
+  text-align: right;
+}
+.record-calories.data-v-682a3bd8 {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #10b981;
+  display: block;
+  margin-bottom: 5rpx;
+}
+.record-nutrition.data-v-682a3bd8 {
+  font-size: 20rpx;
+  color: #94a3b8;
+}
