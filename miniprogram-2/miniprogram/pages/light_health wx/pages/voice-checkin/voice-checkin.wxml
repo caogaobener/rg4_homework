@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">语音打卡</text>
+    <text class="page-subtitle">按住麦克风，说出你的运动内容</text>
+  </view>
+
+  <view class="card mic-card">
+    <view
+      class="mic-btn {{isRecording ? 'mic-btn-recording' : ''}}"
+      bindtouchstart="startRecord"
+      bindtouchend="stopRecord"
+      bindtouchcancel="stopRecord"
+    >
+      <text class="mic-icon">🎤</text>
+      <text class="mic-text">{{isTranscribing ? '识别中...' : isRecording ? '录音中...' : '按住说话'}}</text>
+    </view>
+  </view>
+
+  <view class="card result-card">
+    <text class="section-label">识别结果</text>
+    <textarea
+      class="result-textarea"
+      placeholder="语音识别结果将显示在这里，可手动修改"
+      value="{{recognizedText}}"
+      bindinput="onTextInput"
+      maxlength="200"
+      auto-height
+    />
+    <view class="parsed-info" wx:if="{{exercise_type}}">
+      <text class="parsed-item">类型：{{exercise_type}}</text>
+      <text class="parsed-item">时长：{{duration}} 分钟</text>
+      <text class="parsed-item" wx:if="{{estimatingCalorie}}">热量：AI 估算中...</text>
+      <text class="parsed-item" wx:elif="{{calorie}}">
+        热量：{{calorie}} 千卡{{calorieSource === 'ai' ? '（AI估算）' : calorieSource === 'formula' ? '（公式估算）' : ''}}
+      </text>
+      <text class="parsed-item hint" wx:else>热量：将根据类型与时长自动估算</text>
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submitRecord">确认提交</button>
+</view>

@@ -1,0 +1,60 @@
+<!-- pages/profile/profile.wxml -->
+<view class="profile-container">
+  <!-- 用户信息头部 -->
+  <view class="user-header">
+    <view class="avatar-wrapper">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+    </view>
+    <text class="user-name">{{userInfo.nickName || '用户昵称'}}</text>
+  </view>
+
+  <!-- 健康档案 -->
+  <view class="form-list">
+    <view class="form-item">
+      <text class="label">身高</text>
+      <input type="digit" value="{{height}}" data-key="height" bindinput="onInput" placeholder="请输入身高/cm" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">体重</text>
+      <input type="digit" value="{{weight}}" data-key="weight" bindinput="onInput" placeholder="请输入体重/kg" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">年龄</text>
+      <input type="number" value="{{age}}" data-key="age" bindinput="onInput" placeholder="请输入年龄" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <view class="gender-group">
+        <view class="radio-item" bindtap="selectGender" data-gender="女">
+          <view class="radio-circle {{gender === '女' ? 'active' : ''}}">
+            <view wx:if="{{gender === '女'}}" class="radio-dot"></view>
+          </view>
+          <text>女</text>
+        </view>
+        <view class="radio-item" bindtap="selectGender" data-gender="男">
+          <view class="radio-circle {{gender === '男' ? 'active' : ''}}">
+            <view wx:if="{{gender === '男'}}" class="radio-dot"></view>
+          </view>
+          <text>男</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">BMI</text>
+      <text class="bmi-text">{{bmi || 'BMI计算结果'}}</text>
+    </view>
+  </view>
+
+  <!-- 保存按钮：未保存时显示 -->
+  <button wx:if="{{!saved}}" class="save-btn" bindtap="saveProfile">保存档案</button>
+  
+  <!-- 已保存状态 -->
+  <view wx:if="{{saved}}" class="saved-section">
+    <text class="saved-text">✓ 档案已保存</text>
+   
+  </view>
+</view>

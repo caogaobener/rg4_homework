@@ -1,0 +1,94 @@
+<!-- pages/pharmacist/pharmacist.wxml -->
+<view class="pharmacist-container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <image class="avatar" src="/images/pharmacist-avatar.png" mode="aspectFill" />
+    <view class="info">
+      <text class="name">AI药师</text>
+      <text class="status">● 在线</text>
+    </view>
+  </view>
+
+  <!-- 聊天区域 -->
+  <scroll-view class="chat-area" scroll-y scroll-into-view="{{lastMessageId}}">
+    <!-- 欢迎消息 -->
+    <view class="welcome-msg" wx:if="{{messages.length === 0}}">
+      <text class="welcome-title">👋 你好，我是你的AI药师</text>
+      <text class="welcome-desc">我可以帮你：</text>
+      <view class="feature-list">
+        <text>• 查询药品用法用量</text>
+        <text>• 说明药物副作用</text>
+        <text>• 提供用药禁忌提醒</text>
+        <text>• 解答用药相关问题</text>
+      </view>
+      <text class="welcome-tip">点击下方快捷问题，或直接输入咨询</text>
+    </view>
+
+    <!-- 消息列表 -->
+    <view 
+      wx:for="{{messages}}" 
+      wx:key="id" 
+      id="msg-{{index}}"
+      class="message {{item.role}}"
+    >
+      <!-- AI头像（左边） -->
+      <image 
+        wx:if="{{item.role === 'assistant'}}" 
+        class="msg-avatar left" 
+        src="/images/pharmacist-avatar.png" 
+      />
+      
+      <!-- 消息内容 -->
+      <view class="msg-content {{item.role}}">
+        <text class="msg-text">{{item.content}}</text>
+        <text class="msg-time">{{item.time}}</text>
+      </view>
+      
+      <!-- 用户头像（右边） -->
+      <image 
+        wx:if="{{item.role === 'user'}}" 
+        class="msg-avatar right" 
+        src="{{userAvatar}}" 
+      />
+    </view>
+
+    <!-- 加载中 -->
+    <view wx:if="{{loading}}" class="loading">
+      <text>AI药师思考中</text>
+      <view class="dots">
+        <text>.</text><text>.</text><text>.</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 快捷问题 -->
+  <view class="quick-questions" wx:if="{{!loading && messages.length < 3}}">
+    <text class="quick-title">常见问题</text>
+    <view class="quick-list">
+      <view 
+        wx:for="{{quickQuestions}}" 
+        wx:key="index"
+        class="quick-item"
+        bindtap="sendQuickQuestion"
+        data-question="{{item}}"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <input 
+      class="input"
+      placeholder="输入药品名称或用药问题..."
+      value="{{inputValue}}"
+      bindinput="onInput"
+      confirm-type="send"
+      bindconfirm="sendMessage"
+    />
+    <button class="send-btn" bindtap="sendMessage" disabled="{{!inputValue || loading}}">
+      发送
+    </button>
+  </view>
+</view>

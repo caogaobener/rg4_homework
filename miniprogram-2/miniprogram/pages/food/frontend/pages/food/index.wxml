@@ -1,0 +1,171 @@
+<view class="container">
+  <!-- 能量仪表盘 -->
+  <view class="dashboard-card">
+    <view class="card-header">
+      <text class="title">今日能量平衡配额</text>
+      <text class="target-tag">控卡目标 1800 kcal</text>
+    </view>
+
+    <view class="kcal-main">
+      <text class="kcal-val">{{totalCalories || 0}}</text>
+      <text class="kcal-unit">kcal 已录入</text>
+    </view>
+
+    <view class="remaining">
+      <text>还可摄入：{{remainingCalories}} kcal</text>
+    </view>
+
+    <!-- 三大营养素进度条 -->
+    <view class="macros-grid">
+      <view class="macro-item">
+        <view class="macro-header">
+          <text class="macro-name">蛋白质</text>
+          <text class="macro-value">{{totalProtein || 0}}/65g</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill blue" style="width: {{proteinPercent || 0}}"></view>
+        </view>
+      </view>
+
+      <view class="macro-item">
+        <view class="macro-header">
+          <text class="macro-name">碳水</text>
+          <text class="macro-value">{{totalCarbs || 0}}/180g</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill amber" style="width: {{carbsPercent || 0}}"></view>
+        </view>
+      </view>
+
+      <view class="macro-item">
+        <view class="macro-header">
+          <text class="macro-name">脂肪</text>
+          <text class="macro-value">{{totalFat || 0}}/55g</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill rose" style="width: {{fatPercent || 0}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心功能快捷入口 -->
+  <view class="actions-grid">
+    <view class="action-card" bindtap="navToChat">
+      <view class="action-icon teal">
+        <text class="icon-text">✨</text>
+      </view>
+      <text class="action-title">AI营养师</text>
+      <text class="action-desc">一对一营养咨询</text>
+    </view>
+
+    <view class="action-card" bindtap="navToCalendar">
+      <view class="action-icon">
+        <text class="icon-text">📅</text>
+      </view>
+      <text class="action-title">饮食日历</text>
+      <text class="action-desc">历史记录追踪</text>
+    </view>
+  </view>
+
+  <!-- Gemini AI功能区 -->
+  <view class="ai-card">
+    <view class="ai-header">
+      <text class="ai-title">✨ Gemini 膳食诊断与配餐中心</text>
+      <text class="ai-desc">读取当日饮食数据，实时分析营养缺陷</text>
+    </view>
+
+    <view class="ai-buttons">
+      <button class="ai-btn emerald" bindtap="runDietDiagnosis" disabled="{{isDiagnosing}}">
+        {{isDiagnosing ? '分析中...' : '诊断今日红黑榜'}}
+      </button>
+
+      <button class="ai-btn orange" bindtap="generateRecipe" disabled="{{isGenerating}}">
+        {{isGenerating ? '生成中...' : '定制下餐低卡饭'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 红黑榜诊断结果 -->
+  <view wx:if="{{dietDiagnosis}}" class="diagnosis-card">
+    <view class="diagnosis-header">
+      <text class="diagnosis-title">🏆 今日健康诊断</text>
+      <text class="score-tag">综合得分: {{dietDiagnosis.score}}分</text>
+    </view>
+
+    <view class="diagnosis-content">
+      <view class="pros-section">
+        <text class="section-title green">🟢 绿榜优点：</text>
+        <view class="list">
+          <view wx:for="{{dietDiagnosis.pros}}" wx:key="*this" class="list-item">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="cons-section">
+        <text class="section-title red">🔴 红榜改善：</text>
+        <view class="list">
+          <view wx:for="{{dietDiagnosis.cons}}" wx:key="*this" class="list-item">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="advice-box">
+        <text class="advice-title">💡 营养师膳食微调：</text>
+        <text class="advice-text">{{dietDiagnosis.alternatives}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 定制配餐结果 -->
+  <view wx:if="{{customRecipe}}" class="recipe-card">
+    <view class="recipe-header">
+      <text class="recipe-title">🔥 黄金低脂菜谱</text>
+      <text class="calorie-tag">控卡: {{customRecipe.targetCalories}} kcal</text>
+    </view>
+
+    <view class="recipe-content">
+      <text class="recipe-name">{{customRecipe.recipeName}}</text>
+
+      <view class="nutrition-tags">
+        <text class="tag">蛋白: {{customRecipe.protein}}g</text>
+        <text class="tag">碳水: {{customRecipe.carbs}}g</text>
+        <text class="tag">脂肪: {{customRecipe.fat}}g</text>
+      </view>
+
+      <view class="ingredients-section">
+        <text class="section-title">🥑 原料搭配：</text>
+        <text class="ingredients-text">{{customRecipe.ingredients}}</text>
+      </view>
+
+      <view class="steps-box">
+        <text class="steps-title">🧑‍🍳 极简做法：</text>
+        <text class="steps-text">{{customRecipe.steps}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日饮食记录 -->
+  <view class="records-section">
+    <view class="section-header">
+      <text class="section-title">今日已录餐单</text>
+      <text class="clear-btn" bindtap="clearRecords">清空</text>
+    </view>
+
+    <view wx:if="{{todayRecords.length === 0}}" class="empty-state">
+      <text>今日暂无饮食记录</text>
+      <text class="empty-desc">点击上方拍照识食一秒录入</text>
+    </view>
+
+    <view wx:else class="records-list">
+      <view wx:for="{{todayRecords}}" wx:key="id" class="record-item">
+        <view class="record-left">
+          <text class="meal-tag">{{item.type}}</text>
+          <view class="record-info">
+            <text class="food-name">{{item.name}}</text>
+            <text class="record-time">{{item.time}}</text>
+          </view>
+        </view>
+        <text class="record-calories">+{{item.calories}} kcal</text>
+      </view>
+    </view>
+  </view>
+</view>

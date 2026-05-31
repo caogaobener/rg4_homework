@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">久坐提醒</text>
+    <text class="page-subtitle">到点将震动并弹窗提醒，计时期间请保持小程序在前台</text>
+  </view>
+
+  <view class="card">
+    <!-- 开关 -->
+    <view class="card-row">
+      <view class="row-label">
+        <text class="label-title">开启提醒</text>
+        <text class="label-desc">关闭后将不会收到久坐通知</text>
+      </view>
+      <switch
+        class="remind-switch"
+        checked="{{remindSwitch}}"
+        color="#00C896"
+        bindchange="onSwitchChange"
+      />
+    </view>
+
+    <view class="divider"></view>
+
+    <!-- 间隔时间 -->
+    <view class="card-row column">
+      <text class="label-title">提醒间隔</text>
+      <view class="interval-input-wrap">
+        <input
+          class="interval-input"
+          type="number"
+          value="{{duration}}"
+          placeholder="30"
+          disabled="{{!remindSwitch}}"
+          bindinput="onDurationInput"
+        />
+        <text class="interval-unit">分钟</text>
+      </view>
+      <text class="label-desc">建议间隔 20～60 分钟</text>
+    </view>
+
+    <view class="divider"></view>
+
+    <!-- 当前状态 -->
+    <view class="status-row">
+      <text class="label-title">当前状态</text>
+      <view class="status-badge status-{{statusType}}">
+        <view class="status-dot"></view>
+        <text class="status-text">{{statusText}}</text>
+      </view>
+    </view>
+
+    <!-- 主按钮 -->
+    <button
+      class="action-btn {{isReminding ? 'action-btn-stop' : ''}}"
+      disabled="{{!remindSwitch}}"
+      bindtap="toggleReminder"
+    >
+      {{isReminding ? '停止提醒' : '开始提醒'}}
+    </button>
+  </view>
+
+  <view class="tips">
+    <text class="tips-icon">💡</text>
+    <text class="tips-text">开启后将在设定间隔到达时提醒您起身活动</text>
+  </view>
+</view>

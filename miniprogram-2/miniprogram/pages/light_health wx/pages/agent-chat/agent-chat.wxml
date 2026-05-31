@@ -1,0 +1,67 @@
+<view class="page">
+  <view class="header">
+    <text class="header-title">运动教练</text>
+    <text class="header-sub">按住麦克风 → 转文字 → 确认后发送（最长30秒）</text>
+  </view>
+
+  <scroll-view
+    class="chat-scroll"
+    scroll-y="{{true}}"
+    scroll-into-view="{{scrollIntoView}}"
+    scroll-with-animation="{{true}}"
+  >
+    <view class="msg-list">
+      <block wx:for="{{messages}}" wx:key="id">
+        <view
+          wx:if="{{item.type === 'system'}}"
+          id="msg-{{item.id}}"
+          class="msg-system"
+        >
+          <text class="system-text">{{item.text}}</text>
+        </view>
+
+        <view
+          wx:else
+          id="msg-{{item.id}}"
+          class="msg-row {{item.sender === 'user' ? 'msg-user' : 'msg-coach'}}"
+        >
+          <view class="bubble {{item.sender === 'user' ? 'bubble-user' : 'bubble-coach'}}">
+            <text class="msg-text">{{item.text}}</text>
+            <text class="msg-time">{{item.time}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view class="input-bar">
+    <view
+      class="voice-btn {{isRecording ? 'voice-btn-active' : ''}} {{isTranscribing ? 'voice-btn-disabled' : ''}}"
+      bindtouchstart="startVoiceRecord"
+      bindtouchend="stopVoiceRecord"
+      bindtouchcancel="stopVoiceRecord"
+    >
+      <text class="voice-icon">{{isRecording ? '●' : '🎤'}}</text>
+    </view>
+
+    <input
+      class="chat-input"
+      placeholder="{{isTranscribing ? '正在转写...' : '输入或语音转文字后发送'}}"
+      value="{{inputValue}}"
+      confirm-type="send"
+      bindinput="onInput"
+      bindconfirm="sendMessage"
+      disabled="{{typing || isTranscribing}}"
+    />
+    <button
+      class="send-btn"
+      disabled="{{!inputValue || typing || isTranscribing}}"
+      bindtap="sendMessage"
+    >
+      发送
+    </button>
+  </view>
+
+  <view class="voice-hint" wx:if="{{isRecording}}">{{recordTip}}</view>
+  <view class="voice-hint transcribing-hint" wx:if="{{isTranscribing}}">语音转文字中，请稍候...</view>
+</view>

@@ -1,0 +1,24 @@
+# 轻养派小程序 FastAPI 后端依赖
+
+# Web 框架
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# 数据库 ORM 及 MySQL 驱动
+sqlalchemy>=2.0.0
+pymysql>=1.1.0
+
+# 数据验证
+pydantic>=2.0.0
+
+# 微信运动数据 AES 解密
+pycryptodome>=3.20.0
+
+# 其他工具
+python-multipart>=0.0.9
+
+# 智谱 AI SDK
+zhipuai>=2.0.0
+
+# HTTP 客户端（微信登录）
+httpx>=0.27.0
