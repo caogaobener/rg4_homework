@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/medicine/medicine",
+    "pages/diet/diet",
+    "pages/ai/ai",
+    "pages/sport/sport",
+    "pages/profile/profile",
+    "pages/pharmacist/pharmacist"
+  ],
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#07c160",
+    "list": [
+      {
+        "pagePath": "pages/medicine/medicine",
+        "text": "用药"
+      },
+      {
+        "pagePath": "pages/diet/diet",
+        "text": "饮食"
+      },
+      {
+        "pagePath": "pages/ai/ai",
+        "text": "AI"
+      },
+      {
+        "pagePath": "pages/sport/sport",
+        "text": "运动"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轻养派",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,43 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container">
+  <view class="logo-section">
+    <view class="app-name">轻养派</view>
+    <view class="app-slogan">你的个人健康管理助手</view>
+  </view>
+
+  <!-- 头像昵称区域（登录前填写） -->
+  <view class="user-info-section" wx:if="{{showUserInfoInput}}">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <!-- 未选择头像时显示占位 -->
+      <view wx:if="{{!avatarUrl}}" class="avatar-placeholder">
+        <view class="avatar-circle">
+          <text class="plus-icon">+</text>
+        </view>
+        <text class="avatar-hint">点击选择头像</text>
+      </view>
+      <!-- 已选择头像时只显示图片 -->
+      <image wx:else class="avatar-img" src="{{avatarUrl}}" mode="aspectFill" />
+    </button>
+    
+    <input 
+      type="nickname" 
+      class="nickname-input" 
+      placeholder="请输入昵称"
+      bind:input="onInputNickName"
+      value="{{nickName}}"
+    />
+  </view>
+
+  <view class="bottom-section">
+    <button class="login-btn" bindtap="onLogin">
+      {{showUserInfoInput ? '确认并登录' : '微信一键登录'}}
+    </button>
+
+    <view class="agree-row" bindtap="toggleAgree">
+      <view class="checkbox {{agree ? 'checked' : ''}}">
+        <text wx:if="{{agree}}">✓</text>
+      </view>
+      <text class="agree-text">登录即表示同意《用户协议》和《隐私政策》</text>
+    </view>
+  </view>
+</view>

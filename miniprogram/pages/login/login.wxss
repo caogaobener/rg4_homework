@@ -1,0 +1,174 @@
+/* pages/login/login.wxss */
+page {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.logo-section {
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  letter-spacing: 4rpx;
+}
+
+.app-slogan {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+/* ===== 头像昵称区域 ===== */
+.user-info-section {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 外层按钮：透明背景，无边框 */
+.avatar-wrapper {
+  width: 200rpx;
+  height: 240rpx;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-wrapper::after {
+  border: none;
+}
+
+/* 未选择头像时的占位区域 */
+.avatar-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 虚线圆圈 */
+.avatar-circle {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 4rpx dashed #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+}
+
+.plus-icon {
+  font-size: 60rpx;
+  color: #d0d0d0;
+  font-weight: 300;
+}
+
+/* 提示文字 */
+.avatar-hint {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 16rpx;
+}
+
+/* 已选择头像时的图片 */
+.avatar-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 4rpx solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+/* 昵称输入框 */
+.nickname-input {
+  margin-top: 40rpx;
+  width: 400rpx;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* ===== 底部区域 ===== */
+.bottom-section {
+  position: absolute;
+  bottom: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login-btn {
+  width: 400rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #4CAF50;
+  color: #ffffff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  border: none;
+  margin-bottom: 30rpx;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+.login-btn:active {
+  opacity: 0.9;
+}
+
+.agree-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60rpx;
+}
+
+.checkbox {
+  width: 28rpx;
+  height: 28rpx;
+  border: 2rpx solid #999999;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.checkbox.checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.agree-text {
+  font-size: 22rpx;
+  color: #999999;
+}

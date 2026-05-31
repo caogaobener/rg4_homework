@@ -1,0 +1,23 @@
+<view class="container">
+  <!-- 未登录 -->
+  <view wx:if="{{!hasLogin}}" class="login-box">
+    <view class="title">用药提醒小程序</view>
+    <view class="desc">请使用微信登录</view>
+
+    <button 
+      class="login-btn" 
+      bindtap="wxLogin"
+    >
+      微信一键登录
+    </button>
+  </view>
+
+  <!-- 已登录 -->
+  <view wx:else class="user-info">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="name">{{userInfo.nickName}}</view>
+    <view class="tip">登录成功 ✅</view>
+
+    <button bindtap="logout" class="logout-btn">退出登录</button>
+  </view>
+</view>
