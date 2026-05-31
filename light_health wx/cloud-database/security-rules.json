@@ -1,0 +1,14 @@
+{
+  "app_users": {
+    "read": "doc._openid == auth.openid",
+    "write": "doc._openid == auth.openid"
+  },
+  "exercise_records": {
+    "read": "doc._openid == auth.openid",
+    "write": "doc._openid == auth.openid"
+  },
+  "werun_data": {
+    "read": "doc._openid == auth.openid",
+    "write": "doc._openid == auth.openid"
+  }
+}

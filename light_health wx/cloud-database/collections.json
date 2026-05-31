@@ -1,0 +1,27 @@
+{
+  "collections": [
+    {
+      "name": "app_users",
+      "description": "轻养派用户表（勿用 users，云开发可能已占用）",
+      "indexes": [
+        { "field": "_openid", "unique": false }
+      ]
+    },
+    {
+      "name": "exercise_records",
+      "description": "运动记录",
+      "indexes": [
+        { "field": "_openid", "unique": false },
+        { "field": "record_time", "order": "desc" }
+      ]
+    },
+    {
+      "name": "werun_data",
+      "description": "微信步数",
+      "indexes": [
+        { "field": "_openid", "unique": false },
+        { "field": "stat_date", "order": "asc" }
+      ]
+    }
+  ]
+}
