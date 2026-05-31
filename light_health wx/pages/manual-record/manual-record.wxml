@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <text class="label">运动类型</text>
+      <picker mode="selector" range="{{typeList}}" value="{{typeIndex}}" bindchange="bindPickerChange">
+        <view class="input picker-input">{{typeList[typeIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item" wx:if="{{isOtherType}}">
+      <text class="label">自定义运动</text>
+      <input
+        class="input"
+        placeholder="请输入运动名称，如：跳绳、羽毛球"
+        value="{{customType}}"
+        data-field="customType"
+        bindinput="bindInput"
+        bindblur="onCustomTypeBlur"
+      />
+      <text class="field-hint">选择「其他」时可自行填写，系统将按名称 AI 估算热量</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">时长</text>
+      <input
+        class="input"
+        type="number"
+        placeholder="请输入时长"
+        value="{{duration}}"
+        data-field="duration"
+        bindinput="bindInput"
+        bindblur="onDurationBlur"
+      />
+      <text class="unit">分钟</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">消耗热量</text>
+      <view class="calorie-row">
+        <input
+          class="input calorie-input"
+          type="digit"
+          placeholder="{{estimatingCalorie ? 'AI 估算中...' : '可手动填写或 AI 估算'}}"
+          value="{{calorie}}"
+          data-field="calorie"
+          bindinput="bindInput"
+        />
+        <text class="unit">千卡</text>
+      </view>
+      <button
+        class="estimate-btn"
+        size="mini"
+        loading="{{estimatingCalorie}}"
+        bindtap="onEstimateCalorie"
+      >
+        AI 估算热量
+      </button>
+      <text class="calorie-hint" wx:if="{{calorie && calorieSource === 'ai'}}">
+        已根据「{{isOtherType ? customType : typeList[typeIndex]}}」与时长由 AI 估算
+      </text>
+      <text class="calorie-hint formula" wx:if="{{calorie && calorieSource === 'formula'}}">
+        已使用 MET 公式估算（可点击按钮重新 AI 估算）
+      </text>
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submitRecord">保存记录</button>
+</view>

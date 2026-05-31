@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 1. 步数卡片 -->
+  <view class="step-card">
+    <view class="step-icon">👟</view>
+    <text class="step-number">{{stepCount}}</text>
+    <text class="step-label">今日步数</text>
+    <text class="step-date">{{currentDate}}</text>
+  </view>
+
+  <!-- 2. 同步按钮 -->
+  <view class="action-area">
+    <button class="sync-btn" bindtap="syncWeRun">
+      <text>📊 同步微信步数</text>
+    </button>
+  </view>
+
+  <!-- 3. 趋势图区域 -->
+  <view class="chart-area">
+    <text class="section-title">近7天趋势</text>
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  </view>
+
+  <!-- 4. 运动记录列表 -->
+  <view class="record-list">
+    <!-- 列表头部：标题 + 清空按钮 -->
+    <view class="list-header">
+      <view class="list-title-wrap">
+        <text class="section-title">运动记录</text>
+        <text class="record-count" wx:if="{{records.length > 0}}">共 {{records.length}} 条</text>
+      </view>
+      <view
+        class="clear-all-btn {{records.length === 0 ? 'clear-all-btn-disabled' : ''}}"
+        bindtap="clearAllRecords"
+      >
+        <text class="clear-icon">🗑</text>
+        <text>清空</text>
+      </view>
+    </view>
+
+    <!-- 列表项循环 -->
+    <view
+      class="record-item"
+      wx:for="{{records}}"
+      wx:key="record_id"
+      data-id="{{item.record_id}}"
+      bindtap="viewDetail"
+      bindlongpress="deleteOneRecord"
+    >
+      <view class="item-info">
+        <text class="record-type">{{item.exercise_type}}</text>
+        <text class="record-time">{{item.record_time}}</text>
+      </view>
+
+      <view class="item-right">
+        <text class="record-duration">{{item.duration}}分钟</text>
+        <text
+          class="delete-btn"
+          catchtap="deleteOneRecord"
+          data-id="{{item.record_id}}"
+        >删除</text>
+      </view>
+    </view>
+
+    <!-- 空状态：当 records 长度为 0 时显示 -->
+    <view wx:if="{{records.length === 0}}" class="empty-state">
+      <text>暂无记录，快去添加吧</text>
+    </view>
+  </view>
+
+  <!-- 5. 添加记录入口 -->
+  <view class="add-record-area">
+    <button class="add-record-btn" bindtap="goToAddRecord">
+      <text>➕ 添加运动记录</text>
+    </button>
+  </view>
+</view>
